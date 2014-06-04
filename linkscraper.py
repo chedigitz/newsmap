@@ -38,4 +38,4 @@ for x in links:
 			outdata.append([x,y])
 			
 for x in outdata:
-	print x		
+	print x
