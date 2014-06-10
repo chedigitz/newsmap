@@ -27,7 +27,7 @@ seeds = seeder()
 
 def keycheck():
 	keys = []
-	with open('/Users/joereidl/code/newsmap/Keyword List - Sheet1.csv','r') as keylist:
+	with open(str(os.sys.path[0]) + '/Keyword List - Sheet1.csv','r') as keylist:
 		keywords = csv.reader(keylist)
 		for x in keywords:
 			keys.append(x[0])
