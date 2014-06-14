@@ -4,6 +4,7 @@ import os
 import sys
 import csv
 import urllib2
+import re
 
 def seeder():
 	sites = ['The Guardian','New York Times','Washington Post','BBC','ABC','CBS','NBC','Reuters','CNN'] # list of the site names 
@@ -27,7 +28,7 @@ seeds = seeder()
 
 def keycheck():
 	keys = []
-	with open('/Users/joereidl/code/newsmap/Keyword List - Sheet1.csv','r') as keylist:
+	with open(str(os.sys.path[0]) + '/Keyword List - Sheet1.csv','r') as keylist:
 		keywords = csv.reader(keylist)
 		for x in keywords:
 			keys.append(x[0])
@@ -37,21 +38,14 @@ def keycheck():
 keys = keycheck()
 
 def scraper(s):
-	site = urllib2.urlopen(s)
-	html = site.read()
-	start, end = 0,0
-	links = []
-	while start != -1:
-		start = html.find('a href="',end) 				 #finds start of '<a href="' tags
-		end = html.find('">', start + 8)				 #finds end of '<a href="' tag
-		ltexts = html.find('>',end) 					 #finds start of link text
-		ltexte = html.find('</a>',end)					 #finds start of '</a>' tags
-		linktext = str(html[ltexts + 1:ltexte]).replace('<br>',' ').replace('<br/>',' ').replace('&lsquo;',"'").replace('&rsquo;',"'")
-		links.append([linktext,html[start + 8:end]])	 #adds links to links list
-		start = html.find('a href="', end + 1)	
-	return links
-	
-links = scraper('http://www.washingtonpost.com/')
+	try:
+		site = urllib2.urlopen(s)
+		html = site.read()
+		links = re.findall('<a href=".*?' + '.' + '</a>',html)
+		return links
+	except:
+		return 'Error loading site:' + s
 
-for x in sorted(links):
-	print x
+for x in seeds:
+	for y in scraper(x[2]):
+		print y
