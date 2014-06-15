@@ -46,11 +46,6 @@ def scraper(s):
 	except:
 		return 'Error loading site:' + s
 
-<<<<<<< HEAD
 for x in seeds:
 	for y in scraper(x[2]):
 		print y
-=======
-for x in sorted(links):
-	print x
->>>>>>> 4d480ee7d54bae489389f0bb30783f801b5fb386
