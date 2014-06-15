@@ -56,7 +56,6 @@ def scraper(s):
 
 for x in seeds:
 	for y in scraper(x[2]):
-<<<<<<< HEAD
 		for z in keys:
 			if z in y:
 				if y not in bin:
@@ -66,8 +65,3 @@ for x in seeds:
 #for x in bin:
 #	print x
 
-	
-			
-=======
-		print y
->>>>>>> 3ecae18ee959f327f55334ce60430eb3c71e2372
