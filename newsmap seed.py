@@ -61,7 +61,19 @@ for x in seeds:
 				if y not in bin:
 					print z + ' found in ' + y
 					bin.append(y)
-		
+
+"""
+test area below
+"""
+
 #for x in bin:
 #	print x
 
+
+website = 'http://www.bbc.com/news/'
+
+for x in scraper(website):
+	if 'http://' not in x[:16] and '#' not in x[:16]:
+		print x + '  !!!!! APPEND SITE !!!!'
+	else:
+		print x
