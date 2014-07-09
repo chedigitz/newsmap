@@ -1,11 +1,14 @@
 # import modules
 import urllib2
 import csv
+import os
+import sys
 
 # set standard variables
 
 site = urllib2.urlopen('http://www.cnn.com/')
 html = site.read()
+root = os.sys.path[0]
 start = 0
 end = 0
 links = []
@@ -14,7 +17,7 @@ outdata =[]
 
 #import .csv data
 
-with open('/Users/joereidl/code/newsmap/Keyword List - Sheet1.csv','r') as keylist:
+with open(root + '/Keyword List - Sheet1.csv','r') as keylist:
 	keywords = csv.reader(keylist)
 	for x in keywords:
 		keys.append(x[0])
