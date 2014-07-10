@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import nltk
 # set standard variables
 
-site = urllib2.urlopen('http://www.reuters.com/')
+site = urllib2.urlopen('http://www.cnn.com/')
 html2 = site.read()
 htmlbody = BeautifulSoup(html2)
 

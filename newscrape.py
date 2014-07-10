@@ -1,7 +1,7 @@
 import urllib2
 import re
 
-website = 'http://www.cnn.com/'
+website = 'http://www.bbc.com/news/'
 domslash = website.find('/',7)
 
 def scraper(s):
