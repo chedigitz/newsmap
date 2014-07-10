@@ -1,8 +1,10 @@
 import urllib2
 import re
 
-website = 'http://www.cnn.com/'
+website = 'http://www.washingtonpost.com/'
 domslash = website.find('/',7)
+good = 0
+bad = 0
 
 def scraper(s):
 	try:
@@ -24,8 +26,14 @@ for x in scraper(website):
 			try:
 				site = urllib2.urlopen(website[:domslash] + y[:-1])
 				print 'OK'
+				good += 1
 			except:
 				print 'BROKEN'
+				bad += 1
 		print '*****'
 	else:
 		print x
+		good += 1
+		
+print good, 'Good'
+print bad, 'Bad'
