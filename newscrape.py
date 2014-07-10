@@ -1,7 +1,11 @@
 import urllib2
 import re
 
+<<<<<<< HEAD
 website = 'http://www.washingtonpost.com/'
+=======
+website = 'http://www.bbc.com/news/'
+>>>>>>> c67fc95513b788e4c9dba241c47b84699ccdba03
 domslash = website.find('/',7)
 good = 0
 bad = 0
